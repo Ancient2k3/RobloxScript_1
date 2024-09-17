@@ -1,6 +1,6 @@
 local gameScripts = {
     -- Blox Fruit --
-    [994732206] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/main/BloxFruits_V3",
+    [994732206] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/main/BloxFruits_V4",
 
     -- The Strongest Battlegrounds --
     [10449761463] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/TSB_UI",
