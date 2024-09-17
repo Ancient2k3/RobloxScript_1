@@ -1,6 +1,18 @@
 local gameScripts = {
     -- Blox Fruit --
     [994732206] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/main/BloxFruits_V3",
+
+    -- The Strongest Battlegrounds --
+    [10449761463] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/TSB_UI",
+
+    -- The Chosen One --
+    [11137575513] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/TCO_UI",
+
+    -- Murder Mystery 2 --
+    [142823291] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/MM2_UI",
+
+    -- Legends of Speed --
+    [3101667897] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/LOS_UI"
 }
 
 local function loadGameScript(gameId)
