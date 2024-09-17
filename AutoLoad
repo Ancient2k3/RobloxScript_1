@@ -12,7 +12,7 @@ local gameScripts = {
     [142823291] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/MM2_UI",
 
     -- Legends of Speed --
-    [3101667897] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/LOS_UI"
+    [1119466531] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/LOS_UI"
 }
 
 local function loadGameScript(gameId)
