@@ -1,3 +1,5 @@
+-- If Place ID Were Wrongs I Will Fixed It --
+
 local gameScripts = {
     -- Blox Fruit --
     [994732206] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/main/BloxFruits_V4",
@@ -9,7 +11,7 @@ local gameScripts = {
     [3983828495] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/TCO_UI",
 
     -- Murder Mystery 2 --
-    [142823291] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/MM2_UI",
+    [66654135] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/MM2_UI",
 
     -- Legends of Speed --
     [1119466531] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/LOS_UI"
