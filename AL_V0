@@ -1,0 +1,48 @@
+-- If Place ID Were Wrongs I Will Fixed It --
+
+local gameScripts = {
+    -- Blox Fruit --
+    [994732206] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/main/BloxFruits_V4",
+
+    -- The Strongest Battlegrounds --
+    [3808081382] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/TSB_UI",
+
+    -- The Chosen One --
+    [3983828495] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/TCO_UI",
+
+    -- Murder Mystery 2 --
+    [66654135] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/MM2_UI",
+
+    -- Legends of Speed --
+    [1119466531] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/LOS_UI",
+
+    -- Pizza Place --
+    [47545] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/PP_UI"
+}
+
+local function loadGameScript(gameId)
+    local scriptUrl = gameScripts[gameId]
+    if scriptUrl then
+        local success, result = pcall(function()
+            return loadstring(game:HttpGet(scriptUrl))()
+        end)
+        if not success then
+            warn("Failed to load script: " .. result)
+        end
+    else
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/DetectTool/main/Scripter_Tools'))()
+        
+        local CoreGui = game:GetService("StarterGui")
+
+    CoreGui:SetCore("SendNotification", {
+        Title = "Welcome to NganHa2k3 Script",
+        Text = " Sorry, right now i don't have maked script for this game !",
+        Duration = 3,
+})
+        
+        warn("No script found for game ID: " .. tostring(gameId))
+    end
+end
+
+
+loadGameScript(game.GameId)
