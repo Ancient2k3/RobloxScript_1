@@ -17,7 +17,7 @@ local gameScripts = {
     [1119466531] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/LOS_UI",
 
     -- Pizza Place --
-    [47575] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/PP_UI"
+    [47545] = "https://raw.githubusercontent.com/NganHa2k3/RobloxScript/UI/PP_UI"
 }
 
 local function loadGameScript(gameId)
