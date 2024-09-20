@@ -1,0 +1,50 @@
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.CoreGui
+screenGui.Name = "Language"
+
+local welcomeFrame = Instance.new("Frame")
+welcomeFrame.Parent = screenGui
+welcomeFrame.BackgroundColor3 = Color3.new(0, 0, 0)
+welcomeFrame.BackgroundTransparency = 0.8
+welcomeFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+welcomeFrame.BorderSizePixel = 2
+welcomeFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
+welcomeFrame.Size = UDim2.new(0, 200, 0, 100)
+
+local EnglishButton = Instance.new("TextButton")
+EnglishButton.Size = UDim2.new(0, 200, 0, 48)
+EnglishButton.Position = UDim2.new(0, 0, 0, 0)
+EnglishButton.BackgroundColor3 = Color3.new(0, 0, 0)
+EnglishButton.BackgroundTransparency = 0.5
+EnglishButton.Text = "Select Language: English"
+EnglishButton.TextColor3 = Color3.new(0, 1, 1)
+EnglishButton.Parent = welcomeFrame
+
+local VietnamButton = Instance.new("TextButton")
+VietnamButton.Size = UDim2.new(0, 200, 0, 48)
+VietnamButton.Position = UDim2.new(0, 0, 0, 52)
+VietnamButton.BackgroundColor3 = Color3.new(0, 0, 0)
+VietnamButton.BackgroundTransparency = 0.5
+VietnamButton.Text = "Chọn Ngôn Ngữ: Việt nam"
+VietnamButton.TextColor3 = Color3.new(1, 1, 0)
+VietnamButton.Parent = welcomeFrame
+
+local function loadEnglishScript()
+    print("Loading English script...")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits'))()
+end
+
+local function loadVietnamScript()
+    print("Loading Vietnam script...")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
+end
+
+EnglishButton.MouseButton1Click:Connect(function()
+    loadEnglishScript()
+    screenGui:Destroy()
+end)
+
+VietnamButton.MouseButton1Click:Connect(function()
+    loadVietnamScript()
+    screenGui:Destroy()
+end)
