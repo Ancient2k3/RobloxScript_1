@@ -32,12 +32,50 @@ local function sendSequentialMessages()
     end
 
     local messages = {
-        "Hello " .. nearestPlayer.Name .. ", I'm " .. localPlayer.Name .. "!",
-        "You're cute, " .. nearestPlayer.Name .. "!",
-        "It's beautiful, right " .. nearestPlayer.Name .. "?",
-        "Hiiii, You're " .. nearestPlayer.Name .. " Ahahaha.. " .. localPlayer.Name .. ".",
-        "Don't try to annoy me.... " .. nearestPlayer.Name .. " vs " .. localPlayer.Name .. "!"
-    }
+        "When I'm lost in a dark city called "The Neon Monster""
+"The small embers in my heart turned into a shooting star"
+"As long as the flame doesn't go out, I'll live up to my duty"
+"We'll wait, for when the fight comes"
+"Then we'll fight for our lives!"
+"Flashing neon city, terribly attractive"
+"Cause 'dirty things' are buried underground"
+"In the cage of a rotting beast"
+"Struggling for our lives"
+"In a cruel dance, fight to survive"
+"A broken kind of paradise"
+"Close our eyes so we can stay blind"
+"Trick our minds into some ecstasy daydream"
+"The kind of ideal that everyone laughs at"
+"But the moment I make it, it will be called"
+"A miracle!"
+"When I'm lost in a dark city called "The Neon Monster""
+"The small embers in my heart turned into a shooting star"
+"As long as the flame doesn't go out, I'll live up to my duty"
+"We'll wait, for when the fight comes"
+"Then we'll fight for our lives!"
+"I'm not a hero"
+"And I'm not a great knight in legend"
+"I'm not a strong man"
+"But my heart is much larger than my life"
+"One step after another"
+"We will keep on moving forward"
+"Onwards until the victory is ours"
+"One more time!"
+"When I'm lost in a dark city called "The Neon Monster""
+"The small embers in my heart turned into a shooting star"
+"As long as the flame doesn't go out, I'll live up to my duty"
+"We'll wait, for when the fight comes"
+"Then we'll fight for our lives!"
+"These moments count for everything"
+"Until we save all the infected"
+"We'll never give up"
+"We'll never give up"
+"No!"
+"We'll never give up"
+"We'll never give up"
+"We'll wait, when the fight comes"
+"Then we'll fight for our lives!"
+}
 
     if messageIndex > #messages then
         messageIndex = 1  -- Reset to the first message if at the end
@@ -52,4 +90,9 @@ local function sendSequentialMessages()
     messageIndex = messageIndex + 1  -- Move to the next message
 end
 
+local isWhite = true
+
+while isWhite do
 sendSequentialMessages()
+wait(2)
+end
