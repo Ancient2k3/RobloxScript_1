@@ -1,6 +1,7 @@
-local player = game.Players.LocalPlayer
+local TS = game:GetService("TweenService")
+local ItMySelf = game.Players.LocalPlayer
 local ChooseLanguageGui = Instance.new("ScreenGui")
-ChooseLanguageGui.Parent = player:WaitForChild("PlayerGui")
+ChooseLanguageGui.Parent = ItMySelf:WaitForChild("PlayerGui")
 ChooseLanguageGui.Name = "Language"
 
 local welcomeFrame = Instance.new("Frame")
@@ -30,25 +31,25 @@ VietnamButton.Text = "Chọn Ngôn Ngữ: Việt nam"
 VietnamButton.TextColor3 = Color3.new(1, 1, 0)
 VietnamButton.Parent = welcomeFrame
 
-local function loadEnglishScript()
+local function tweenOutAndDestroy()
+    local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+    local goal = {Position = UDim2.new(-1, 0, 0.5, -50)}  -- Move outside the right side of the screen
+
+    local tween = TS:Create(welcomeFrame, tweenInfo, goal)
+    tween:Play()
+    
+    tween.Completed:Wait()  -- Wait for the tween to finish
+    ChooseLanguageGui:Destroy()  -- Then destroy the GUI
+end
+
+EnglishButton.MouseButton1Click:Connect(function()
     print("Loading English script...")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits'))()
-end
+    tweenOutAndDestroy()
+end)
 
-local function loadVietnamScript()
+VietnamButton.MouseButton1Click:Connect(function()
     print("Loading Vietnam script...")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
-end
-
-local function onEnglishButtonClick()
-    loadEnglishScript()
-    ChooseLanguageGui:Destroy()
-end
-
-local function onVietnamButtonClick()
-    loadVietnamScript()
-    ChooseLanguageGui:Destroy()
-end
-
-EnglishButton.MouseButton1Click:Connect(onEnglishButtonClick)
-VietnamButton.MouseButton1Click:Connect(onVietnamButtonClick)
+    tweenOutAndDestroy()
+end)
