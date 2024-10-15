@@ -1,9 +1,9 @@
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.CoreGui
-screenGui.Name = "Language"
+local ChooseLanguageGui = Instance.new("ScreenGui")
+ChooseLanguageGui.Parent = game.CoreGui
+ChooseLanguageGui.Name = "Language"
 
 local welcomeFrame = Instance.new("Frame")
-welcomeFrame.Parent = screenGui
+welcomeFrame.Parent = ChooseLanguageGui
 welcomeFrame.BackgroundColor3 = Color3.new(0, 0, 0)
 welcomeFrame.BackgroundTransparency = 0.8
 welcomeFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
@@ -41,10 +41,10 @@ end
 
 EnglishButton.MouseButton1Click:Connect(function()
     loadEnglishScript()
-    screenGui:Destroy()
+    ChooseLanguageGui:Destroy()
 end)
 
 VietnamButton.MouseButton1Click:Connect(function()
     loadVietnamScript()
-    screenGui:Destroy()
+    ChooseLanguageGui:Destroy()
 end)
