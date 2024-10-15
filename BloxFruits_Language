@@ -1,5 +1,6 @@
+local player = game.Players.LocalPlayer
 local ChooseLanguageGui = Instance.new("ScreenGui")
-ChooseLanguageGui.Parent = game.CoreGui
+ChooseLanguageGui.Parent = player:WaitForChild("PlayerGui")
 ChooseLanguageGui.Name = "Language"
 
 local welcomeFrame = Instance.new("Frame")
@@ -39,12 +40,15 @@ local function loadVietnamScript()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
 end
 
-EnglishButton.MouseButton1Click:Connect(function()
+local function onEnglishButtonClick()
     loadEnglishScript()
     ChooseLanguageGui:Destroy()
-end)
+end
 
-VietnamButton.MouseButton1Click:Connect(function()
+local function onVietnamButtonClick()
     loadVietnamScript()
     ChooseLanguageGui:Destroy()
-end)
+end
+
+EnglishButton.MouseButton1Click:Connect(onEnglishButtonClick)
+VietnamButton.MouseButton1Click:Connect(onVietnamButtonClick)
