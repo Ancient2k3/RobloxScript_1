@@ -1,6 +1,54 @@
+-- Quick Tools --
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local function onPlayerChatted(message)
+    local words = string.split(message, " ")
+
+    if words[1] == "Mua" and words[2] then
+        local itemName = words[2]
+        wait(0.2)
+        local args = {
+            [1] = "BuyItem",
+            [2] = itemName
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+    elseif words[1] == "Lấy" and words[2] then
+        local toolName = words[2]
+        wait(0.2)
+        local args = {
+            [1] = "LoadItem",
+            [2] = toolName
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+    elseif words[1] == "MuaF" and words[2] then
+        local fruitName = words[2]
+        wait(0.1)
+        local args = {
+            [1] = "PurchaseRawFruit",
+            [2] = fruitName,
+            [3] = false
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+    elseif words[1] == "Shop" then
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+    elseif words[1] == "Awk" then
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
+    elseif words[1] == "Titles" then
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Titles.Visible = true
+    end
+end
+
+player.Chatted:Connect(onPlayerChatted)
+
+-- UnFixed Function --
+
 print("Sorry Can't Choose Language For Now, Because It's Broken And I Can't Fixed It... So Gonna Loading Vietnamese Language Version ! Bye")
 task.wait(0.5)
 print("Loading Vietnam script...")
 loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
-task.wait(0.5)
-print("Successfully Loading a Script, If No I Don't Know Issues Reason ! Bye")
+-- End Here --
