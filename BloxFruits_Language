@@ -1,54 +1,50 @@
--- Quick Tools --
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.CoreGui
+screenGui.Name = "Language"
 
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
+local welcomeFrame = Instance.new("Frame")
+welcomeFrame.Parent = screenGui
+welcomeFrame.BackgroundColor3 = Color3.new(0, 0, 0)
+welcomeFrame.BackgroundTransparency = 0.8
+welcomeFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+welcomeFrame.BorderSizePixel = 2
+welcomeFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
+welcomeFrame.Size = UDim2.new(0, 200, 0, 100)
 
-local function onPlayerChatted(message)
-    local words = string.split(message, " ")
+local EnglishButton = Instance.new("TextButton")
+EnglishButton.Size = UDim2.new(0, 200, 0, 48)
+EnglishButton.Position = UDim2.new(0, 0, 0, 0)
+EnglishButton.BackgroundColor3 = Color3.new(0, 0, 0)
+EnglishButton.BackgroundTransparency = 0.5
+EnglishButton.Text = "Select Language: English"
+EnglishButton.TextColor3 = Color3.new(0, 1, 1)
+EnglishButton.Parent = welcomeFrame
 
-    if words[1] == "Mua" and words[2] then
-        local itemName = words[2]
-        wait(0.2)
-        local args = {
-            [1] = "BuyItem",
-            [2] = itemName
-        }
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+local VietnamButton = Instance.new("TextButton")
+VietnamButton.Size = UDim2.new(0, 200, 0, 48)
+VietnamButton.Position = UDim2.new(0, 0, 0, 52)
+VietnamButton.BackgroundColor3 = Color3.new(0, 0, 0)
+VietnamButton.BackgroundTransparency = 0.5
+VietnamButton.Text = "Chọn Ngôn Ngữ: Việt nam"
+VietnamButton.TextColor3 = Color3.new(1, 1, 0)
+VietnamButton.Parent = welcomeFrame
 
-    elseif words[1] == "Lấy" and words[2] then
-        local toolName = words[2]
-        wait(0.2)
-        local args = {
-            [1] = "LoadItem",
-            [2] = toolName
-        }
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-
-    elseif words[1] == "MuaF" and words[2] then
-        local fruitName = words[2]
-        wait(0.1)
-        local args = {
-            [1] = "PurchaseRawFruit",
-            [2] = fruitName,
-            [3] = false
-        }
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-
-    elseif words[1] == "Shop" then
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
-    elseif words[1] == "Awk" then
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
-    elseif words[1] == "Titles" then
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.Titles.Visible = true
-    end
+local function loadEnglishScript()
+    print("Loading English script...")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits'))()
 end
 
-player.Chatted:Connect(onPlayerChatted)
+local function loadVietnamScript()
+    print("Loading Vietnam script...")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
+end
 
--- UnFixed Function --
+EnglishButton.MouseButton1Click:Connect(function()
+    loadEnglishScript()
+    screenGui:Destroy()
+end)
 
-print("Sorry Can't Choose Language For Now, Because It's Broken And I Can't Fixed It... So Gonna Loading Vietnamese Language Version ! Bye")
-task.wait(0.5)
-print("Loading Vietnam script...")
-loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
--- End Here --
+VietnamButton.MouseButton1Click:Connect(function()
+    loadVietnamScript()
+    screenGui:Destroy()
+end)
