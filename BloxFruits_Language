@@ -40,20 +40,14 @@ local function loadVietnamScript()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
 end
 
-local UILanguageTest = game.CoreGui.LanguageUITest
+local UILanguageDest = game:GetService("CoreGui").LanguageUITest
 
 EnglishButton.MouseButton1Click:Connect(function()
     loadEnglishScript()
-task.wait(0.01)
-    welcomeFrame.Visible = false
-wait(0.04)
-    UILanguageTest:Destroy()
+    UILanguageDest:Destroy()
 end)
 
 VietnamButton.MouseButton1Click:Connect(function()
     loadVietnamScript()
-task.wait(0.01)
-    welcomeFrame.Visible = false
-wait(0.04)
-    UILanguageTest:Destroy()
+    UILanguageDest:Destroy()
 end)
