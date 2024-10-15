@@ -10,6 +10,7 @@ welcomeFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 welcomeFrame.BorderSizePixel = 2
 welcomeFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
 welcomeFrame.Size = UDim2.new(0, 200, 0, 100)
+welcomeFrame.Visible = true
 
 local EnglishButton = Instance.new("TextButton")
 EnglishButton.Size = UDim2.new(0, 200, 0, 48)
@@ -43,10 +44,16 @@ local UILanguageTest = game.CoreGui.LanguageUITest
 
 EnglishButton.MouseButton1Click:Connect(function()
     loadEnglishScript()
+task.wait(0.01)
+    welcomeFrame.Visible = false
+wait(0.04)
     UILanguageTest:Destroy()
 end)
 
 VietnamButton.MouseButton1Click:Connect(function()
     loadVietnamScript()
+task.wait(0.01)
+    welcomeFrame.Visible = false
+wait(0.04)
     UILanguageTest:Destroy()
 end)
