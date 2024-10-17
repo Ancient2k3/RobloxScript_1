@@ -1,33 +1,308 @@
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.CoreGui
-screenGui.Name = "Language"
+-- Head Start --
+local LanguageSGui = Instance.new("ScreenGui")
+LanguageSGui.Parent = game.CoreGui
 
-local welcomeFrame = Instance.new("Frame")
-welcomeFrame.Parent = screenGui
-welcomeFrame.BackgroundColor3 = Color3.new(0, 0, 0)
-welcomeFrame.BackgroundTransparency = 0.8
-welcomeFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
-welcomeFrame.BorderSizePixel = 2
-welcomeFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
-welcomeFrame.Size = UDim2.new(0, 200, 0, 100)
+local LanguageFrame_0UI = Instance.new("UICorner")
+local ConsoleFrame_0UI = Instance.new("UICorner")
+local LanguageFrame_1UI = Instance.new("UICorner")
+local LanguageSelectButton_0UI = Instance.new("UICorner")
+local EnglishLanguageButton_0UI = Instance.new("UICorner")
+local VietnameseLanguageButton_0UI = Instance.new("UICorner")
+local ConsolePrint_0UI = Instance.new("UICorner")
+local Run_Button_0UI = Instance.new("UICorner")
 
-local EnglishButton = Instance.new("TextButton")
-EnglishButton.Size = UDim2.new(0, 200, 0, 48)
-EnglishButton.Position = UDim2.new(0, 0, 0, 0)
-EnglishButton.BackgroundColor3 = Color3.new(0, 0, 0)
-EnglishButton.BackgroundTransparency = 0.5
-EnglishButton.Text = "Select Language: English"
-EnglishButton.TextColor3 = Color3.new(0, 1, 1)
-EnglishButton.Parent = welcomeFrame
+local LanguageFrame_0 = Instance.new("Frame")
+LanguageFrame_0.Parent = LanguageSGui
+LanguageFrame_0.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LanguageFrame_0.BackgroundTransparency = 0.5
+LanguageFrame_0.Size = UDim2.new(0.25, 0, 0.1, 0)
+LanguageFrame_0.Position = UDim2.new(0.6, 0, -0.05, 0)
+LanguageFrame_0.Active = true
+LanguageFrame_0.Draggable = true
+LanguageFrame_0.Visible = true
 
-local VietnamButton = Instance.new("TextButton")
-VietnamButton.Size = UDim2.new(0, 200, 0, 48)
-VietnamButton.Position = UDim2.new(0, 0, 0, 52)
-VietnamButton.BackgroundColor3 = Color3.new(0, 0, 0)
-VietnamButton.BackgroundTransparency = 0.5
-VietnamButton.Text = "Chọn Ngôn Ngữ: Việt nam"
-VietnamButton.TextColor3 = Color3.new(1, 1, 0)
-VietnamButton.Parent = welcomeFrame
+LanguageFrame_0UI.Parent = LanguageFrame_0
+LanguageFrame_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local ConsoleFrame_0 = Instance.new("TextLabel")
+ConsoleFrame_0.Parent = LanguageFrame_0
+ConsoleFrame_0.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ConsoleFrame_0.BackgroundTransparency = 0.5
+ConsoleFrame_0.Size = UDim2.new(1.5, 0, 1, 0)
+ConsoleFrame_0.Position = UDim2.new(-1.52, 0, 0, 0)
+ConsoleFrame_0.TextScaled = true
+ConsoleFrame_0.TextColor3 = Color3.fromRGB(255, 255, 255)
+ConsoleFrame_0.Text = "-- No print found --"
+ConsoleFrame_0.Font = Enum.Font.Code
+ConsoleFrame_0.Visible = false
+
+ConsoleFrame_0UI.Parent = ConsoleFrame_0
+ConsoleFrame_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local function updateConsoleOutput(message)
+    ConsoleFrame_0.Text = message
+end
+
+local originalPrint = print
+function print(...)
+    local message = table.concat({ ... }, ", ")
+    updateConsoleOutput(message)
+    originalPrint(...)
+end
+
+local LanguageFrame_1 = Instance.new("Frame")
+LanguageFrame_1.Parent = LanguageFrame_0
+LanguageFrame_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LanguageFrame_1.BackgroundTransparency = 0.5
+LanguageFrame_1.Size = UDim2.new(1, 0, 0, 0)
+LanguageFrame_1.Position = UDim2.new(0, 0, 1, 0)
+LanguageFrame_1.Active = true
+LanguageFrame_1.Visible = true
+
+LanguageFrame_1UI.Parent = LanguageFrame_1
+LanguageFrame_1UI.CornerRadius = UDim.new(0.1, 0)
+
+local LanguageFrame_1StartSize = UDim2.new(1, 0, 0, 0)
+local LanguageFrame_1EndSize = UDim2.new(1, 0, 2, 0)
+
+local EnglishLanguageButton = Instance.new("TextButton")
+EnglishLanguageButton.Parent = LanguageFrame_1
+EnglishLanguageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+EnglishLanguageButton.BackgroundTransparency = 0.2
+EnglishLanguageButton.Size = UDim2.new(0.95, 0, 0.4, 0)
+EnglishLanguageButton.Position = UDim2.new(0.02, 0, 0.05, 0)
+EnglishLanguageButton.TextScaled = true
+EnglishLanguageButton.TextColor3 = Color3.fromRGB(0, 200, 255)
+EnglishLanguageButton.Font = Enum.Font.Code
+EnglishLanguageButton.Text = "English"
+EnglishLanguageButton.Visible = true
+
+EnglishLanguageButton_0UI.Parent = EnglishLanguageButton
+EnglishLanguageButton_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local VietnameseLanguageButton = Instance.new("TextButton")
+VietnameseLanguageButton.Parent = LanguageFrame_1
+VietnameseLanguageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+VietnameseLanguageButton.BackgroundTransparency = 0.2
+VietnameseLanguageButton.Size = UDim2.new(0.95, 0, 0.4, 0)
+VietnameseLanguageButton.Position = UDim2.new(0.02, 0, 0.5, 0)
+VietnameseLanguageButton.TextScaled = true
+VietnameseLanguageButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+VietnameseLanguageButton.Font = Enum.Font.Code
+VietnameseLanguageButton.Text = "Vietnamese"
+VietnameseLanguageButton.Visible = true
+
+VietnameseLanguageButton_0UI.Parent = VietnameseLanguageButton
+VietnameseLanguageButton_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local ConsolePrint = Instance.new("TextButton")
+ConsolePrint.Parent = LanguageFrame_0
+ConsolePrint.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ConsolePrint.BackgroundTransparency = 0.2
+ConsolePrint.Size = UDim2.new(0.1, 0, 0.8, 0)
+ConsolePrint.Position = UDim2.new(0.679, 0, 0.5, 0)
+ConsolePrint.TextScaled = true
+ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+ConsolePrint.Font = Enum.Font.Code
+ConsolePrint.Text = "[OFF]"
+ConsolePrint.Visible = true
+ConsolePrint.AnchorPoint = Vector2.new(0.5, 0.5)
+
+ConsolePrint_0UI.Parent = ConsolePrint
+ConsolePrint_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local Run_Button = Instance.new("TextButton")
+Run_Button.Parent = LanguageFrame_0
+Run_Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Run_Button.BackgroundTransparency = 0.2
+Run_Button.Size = UDim2.new(0.1, 0, 0.8, 0)
+Run_Button.Position = UDim2.new(0.79, 0, 0.5, 0)
+Run_Button.TextScaled = true
+Run_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Run_Button.Font = Enum.Font.Code
+Run_Button.Text = "[OK]"
+Run_Button.Visible = false
+Run_Button.AnchorPoint = Vector2.new(0.5, 0.5)
+
+Run_Button_0UI.Parent = Run_Button
+Run_Button_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local LanguageSelectButton = Instance.new("TextButton")
+LanguageSelectButton.Parent = LanguageFrame_0
+LanguageSelectButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LanguageSelectButton.BackgroundTransparency = 0.2
+LanguageSelectButton.Size = UDim2.new(0.6, 0, 0.8, 0)
+LanguageSelectButton.Position = UDim2.new(0.32, 0, 0.5, 0)
+LanguageSelectButton.TextScaled = true
+LanguageSelectButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+LanguageSelectButton.Font = Enum.Font.Code
+LanguageSelectButton.Text = "Select Language"
+LanguageSelectButton.Visible = true
+LanguageSelectButton.AnchorPoint = Vector2.new(0.5, 0.5)
+
+LanguageSelectButton_0UI.Parent = LanguageSelectButton
+LanguageSelectButton_0UI.CornerRadius = UDim.new(0.2, 0)
+
+local LanguageSelectButton_0StartSize = UDim2.new(0.6, 0, 0.8, 0)
+local LanguageSelectButton_0EndSize = UDim2.new(0.63, 0, 0.95, 0)
+
+-- Connect Button --
+local isLanguageSelect = false
+LanguageSelectButton.MouseButton1Click:Connect(function()
+    if isLanguageSelect then
+        print("isLanguageSelect It's set to false")
+        LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+        isLanguageSelect = false
+    else
+        print("isLanguageSelect It's set to true")
+        LanguageFrame_1:TweenSize(LanguageFrame_1EndSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+        isLanguageSelect = true
+    end
+end)
+
+LanguageSelectButton.MouseEnter:Connect(function()
+    LanguageSelectButton:TweenSize(LanguageSelectButton_0EndSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    LanguageSelectButton.Position = UDim2.new(LanguageSelectButton.Position.X.Scale, LanguageSelectButton.Position.X.Offset + (LanguageSelectButton_0EndSize.X.Scale - LanguageSelectButton_0StartSize.X.Scale) * 0.5, LanguageSelectButton.Position.Y.Scale, LanguageSelectButton.Position.Y.Offset + (LanguageSelectButton_0EndSize.Y.Scale - LanguageSelectButton_0StartSize.Y.Scale) * 0.5)
+    LanguageSelectButton.TextColor3 = Color3.fromRGB(0, 255, 255)
+end)
+
+LanguageSelectButton.MouseLeave:Connect(function()
+    LanguageSelectButton:TweenSize(LanguageSelectButton_0StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    LanguageSelectButton.Position = UDim2.new(LanguageSelectButton.Position.X.Scale, LanguageSelectButton.Position.X.Offset + (LanguageSelectButton_0EndSize.X.Scale - LanguageSelectButton_0StartSize.X.Scale) * 0.5, LanguageSelectButton.Position.Y.Scale, LanguageSelectButton.Position.Y.Offset + (LanguageSelectButton_0EndSize.Y.Scale - LanguageSelectButton_0StartSize.Y.Scale) * 0.5)
+    LanguageSelectButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+end)
+
+local IsEnglishSelected = false
+local IsVietnamSelected = false
+
+EnglishLanguageButton.MouseButton1Click:Connect(function()
+    if IsEnglishSelected then
+        EnglishLanguageButton.Text = "English"
+        EnglishLanguageButton.TextColor3 = Color3.fromRGB(0, 200, 255)
+        print("Language GUI: English Button It's UnSelected")
+        
+        IsEnglishSelected = false
+        Run_Button.Visible = false
+    else
+        if IsVietnamSelected then
+            IsVietnamSelected = false
+            VietnameseLanguageButton.Text = "Vietnamese"
+            VietnameseLanguageButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+            print("Language GUI: Vietnamese Button It's UnSelected")
+            Run_Button.Visible = false
+        end
+
+        IsEnglishSelected = true
+        wait(0.4)
+        EnglishLanguageButton.Text = "[English]"
+        EnglishLanguageButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+        print("Language GUI: English Button It's Selected")
+        Run_Button.Visible = true
+    end
+end)
+
+EnglishLanguageButton.MouseEnter:Connect(function()
+    EnglishLanguageButton.TextColor3 = Color3.fromRGB(255, 255, 0)
+    EnglishLanguageButton.Text = "[English]"
+    wait(0.2)
+    EnglishLanguageButton.Text = "[ English ]"
+end)
+
+EnglishLanguageButton.MouseLeave:Connect(function()
+    EnglishLanguageButton.TextColor3 = Color3.fromRGB(0, 200, 255)
+    EnglishLanguageButton.Text = "[ English ]"
+    wait(0.2)
+    EnglishLanguageButton.Text = "[English]"
+    wait(0.02)
+    EnglishLanguageButton.Text = "English"
+    wait(0.02)
+    if IsEnglishSelected then
+        EnglishLanguageButton.Text = "[English]"
+        EnglishLanguageButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+    end
+end)
+
+VietnameseLanguageButton.MouseButton1Click:Connect(function()
+    if IsVietnamSelected then
+        VietnameseLanguageButton.Text = "Vietnamese"
+        VietnameseLanguageButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+        print("Language GUI: Vietnamese Button It's UnSelected")
+        
+        IsVietnamSelected = false
+        Run_Button.Visible = false
+    else
+        if IsEnglishSelected then
+            IsEnglishSelected = false
+            EnglishLanguageButton.Text = "English"
+            EnglishLanguageButton.TextColor3 = Color3.fromRGB(0, 200, 255)
+            print("Language GUI: English Button It's UnSelected")
+            Run_Button.Visible = false
+        end
+
+        IsVietnamSelected = true
+        wait(0.4)
+        VietnameseLanguageButton.Text = "[Vietnamese]"
+        VietnameseLanguageButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+        print("Language GUI: Vietnamese Button It's Selected")
+        Run_Button.Visible = true
+    end
+end)
+
+VietnameseLanguageButton.MouseEnter:Connect(function()
+    VietnameseLanguageButton.TextColor3 = Color3.fromRGB(255, 255, 0)
+    VietnameseLanguageButton.Text = "[Vietnamese]"
+    wait(0.2)
+    VietnameseLanguageButton.Text = "[ Vietnamese ]"
+end)
+
+VietnameseLanguageButton.MouseLeave:Connect(function()
+    VietnameseLanguageButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+    VietnameseLanguageButton.Text = "[ Vietnamese ]"
+    wait(0.2)
+    VietnameseLanguageButton.Text = "[Vietnamese]"
+    wait(0.02)
+    VietnameseLanguageButton.Text = "Vietnamese"
+    wait(0.02)
+    if IsVietnamSelected then
+        VietnameseLanguageButton.Text = "[Vietnamese]"
+        VietnameseLanguageButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+    end
+end)
+
+local isConsolePrint = false
+ConsolePrint.MouseButton1Click:Connect(function()
+    if isConsolePrint then
+        ConsolePrint.Text = "[OFF]"
+        ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+        ConsoleFrame_0.Visible = false
+        isConsolePrint = false
+    else
+        ConsolePrint.Text = "[ON]"
+        ConsolePrint.TextColor3 = Color3.fromRGB(255, 0, 255)
+        ConsoleFrame_0.Visible = true
+        isConsolePrint = true
+    end
+end)
+
+ConsolePrint.MouseEnter:Connect(function()
+    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 0)
+end)
+
+ConsolePrint.MouseLeave:Connect(function()
+    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    wait(0.02)
+    if isConsolePrint then
+        ConsolePrint.TextColor3 = Color3.fromRGB(255, 0, 255)
+    end
+end)
+
+ConsoleFrame_0.MouseEnter:Connect(function()
+    ConsoleFrame_0.TextColor3 = Color3.fromRGB(255, 255, 0)
+end)
+
+ConsoleFrame_0.MouseLeave:Connect(function()
+    ConsoleFrame_0.TextColor3 = Color3.fromRGB(255, 255, 255)
+end)
 
 local function loadEnglishScript()
     print("Loading English script...")
@@ -39,12 +314,54 @@ local function loadVietnamScript()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/TheStrongestBattlegrounds_VN'))()
 end
 
-EnglishButton.MouseButton1Click:Connect(function()
+local function InLoadingSelectedVN()
+    print("InLoading Vietnamese Version")
+    wait(0.5)
+    print("isLanguageSelect It's set to false")
+    LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    task.wait(0.02)
+    ConsoleFrame_0.Visible = false
+    ConsolePrint.Text = "[OFF]"
+    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    wait(0.2)
+    LanguageSelectButton.Text = "Loading VN Script.."
+    loadVietnamScript()
+end
+
+local function InLoadingSelectedEN()
+    print("InLoading English Version")
+    wait(0.5)
+    print("isLanguageSelect It's set to false")
+    LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    task.wait(0.02)
+    ConsoleFrame_0.Visible = false
+    ConsolePrint.Text = "[OFF]"
+    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    wait(0.2)
+    LanguageSelectButton.Text = "Loading ENG Script.."
     loadEnglishScript()
-    screenGui:Destroy()
+end
+
+Run_Button.MouseButton1Click:Connect(function()
+    if not IsEnglishSelected then
+        Run_Button.Visible = false
+        InLoadingSelectedVN()
+        task.wait(0.01)
+        LanguageSGui:Destroy()
+    elseif not IsVietnamSelected then
+        Run_Button.Visible = false
+        InLoadingSelectedEN()
+        task.wait(0.01)
+        LanguageSGui:Destroy()
+    else
+        print("Not any been Selected")
+    end
 end)
 
-VietnamButton.MouseButton1Click:Connect(function()
-    loadVietnamScript()
-    screenGui:Destroy()
+Run_Button.MouseEnter:Connect(function()
+    Run_Button.TextColor3 = Color3.fromRGB(255, 255, 0)
+end)
+
+Run_Button.MouseLeave:Connect(function()
+    Run_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
 end)
