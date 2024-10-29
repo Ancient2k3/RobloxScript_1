@@ -3,6 +3,7 @@ local LanguageSGui = Instance.new("ScreenGui")
 LanguageSGui.Parent = game.CoreGui
 
 local LanguageFrame_0UI = Instance.new("UICorner")
+local JapaneseLanguage_0UI = Instance.new("UICorner")
 local ConsoleFrame_0UI = Instance.new("UICorner")
 local LanguageFrame_1UI = Instance.new("UICorner")
 local LanguageSelectButton_0UI = Instance.new("UICorner")
