@@ -24,6 +24,25 @@ LanguageFrame_0.Visible = true
 LanguageFrame_0UI.Parent = LanguageFrame_0
 LanguageFrame_0UI.CornerRadius = UDim.new(0.2, 0)
 
+-- [[ Extra Language ]] --
+
+local JapaneseLanguage_0 = Instance.new("TextButton")
+JapaneseLanguage_0.Parent = LanguageFrame_0
+JapaneseLanguage_0.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+JapaneseLanguage_0.BackgroundTransparency = 0.5
+JapaneseLanguage_0.Size = UDim2.new(0.4, 0, 0.5, 0)
+JapaneseLanguage_0.Position = UDim2.new(-0.42, 0, 1.06, 0)
+JapaneseLanguage_0.TextScaled = true
+JapaneseLanguage_0.TextColor3 = Color3.fromRGB(255, 255, 255)
+JapaneseLanguage_0.Font = Enum.Font.Code
+JapaneseLanguage_0.Text = "Japanese[JP/日本語]"
+JapaneseLanguage_0.Visible = false
+
+JapaneseLanguage_0UI.Parent = JapaneseLanguage_0
+JapaneseLanguage_0UI.CornerRadius = UDim.new(0.2, 0)
+
+-- [[ Closed Box ]] --
+
 local ConsoleFrame_0 = Instance.new("TextLabel")
 ConsoleFrame_0.Parent = LanguageFrame_0
 ConsoleFrame_0.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -275,11 +294,17 @@ ConsolePrint.MouseButton1Click:Connect(function()
         ConsolePrint.Text = "[OFF]"
         ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
         ConsoleFrame_0.Visible = false
+        -- [[ Language EX ]] --
+        JapaneseLanguage_0.Visible = false
+        -- [[ Closed Box ]] --
         isConsolePrint = false
     else
         ConsolePrint.Text = "[ON]"
         ConsolePrint.TextColor3 = Color3.fromRGB(255, 0, 255)
         ConsoleFrame_0.Visible = true
+        -- [[ Language EX ]] --
+        JapaneseLanguage_0.Visible = true
+        -- [[ Closed Box ]] --
         isConsolePrint = true
     end
 end)
@@ -342,6 +367,21 @@ local function InLoadingSelectedEN()
     loadEnglishScript()
 end
 
+local function InLoadingSelectedJP()
+    print("InLoading EXLanguage: Japanese Version")
+    wait(0.5)
+    print("isLanguageSelect It's set to false")
+    LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    task.wait(0.02)
+    ConsoleFrame_0.Visible = false
+    ConsolePrint.Text = "[OFF]"
+    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    wait(0.2)
+    LanguageSelectButton.Text = "Loading EXLG:JP Script.."
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NganHa2k3/RobloxScript_1/EXLanguage/TheStrongestBattlegrounds_JP"))()
+    print("Successfully Loaded a String")
+end
+
 Run_Button.MouseButton1Click:Connect(function()
     if not IsEnglishSelected then
         Run_Button.Visible = false
@@ -365,3 +405,11 @@ end)
 Run_Button.MouseLeave:Connect(function()
     Run_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
 end)
+
+-- [[ EX Language Button Connection ]] --
+JapaneseLanguage_0.MouseButton1Click:Connect(function()
+    InLoadingSelectedJP()
+    task.wait(0.01)
+    LanguageSGui:Destroy()
+end)
+-- [[ Closed Box ]] --
