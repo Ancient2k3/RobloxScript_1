@@ -311,7 +311,7 @@ end
 
 local function loadVietnamScript()
     print("Loading Vietnam script...")
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/place/BloxFruits_VN'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/refs/heads/place/BloxFruits_VN'))()
 end
 
 local function InLoadingSelectedVN()
