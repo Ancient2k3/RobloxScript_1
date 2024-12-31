@@ -1,15 +1,5 @@
 -- Head Start --
-local oldScG = "TSB2_LanG"
-for _, oldSG in ipairs(game:GetService("CoreGui"):GetChildren()) do
-    if oldSG:IsA("ScreenGui") and oldSG.Name = oldScG then
-        pcall(function()
-            oldSG:Destroy()
-        end)
-    end
-end
-
 local LanguageSGui = Instance.new("ScreenGui")
-LanguageSGui.Name = "TSB2_LanG"
 LanguageSGui.Parent = game.CoreGui
 
 local LanguageFrame_0UI = Instance.new("UICorner")
