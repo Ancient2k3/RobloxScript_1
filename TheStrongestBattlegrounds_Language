@@ -344,13 +344,13 @@ local function InLoadingSelectedVN()
     print("InLoading Vietnamese Version")
     wait(0.5)
     print("isLanguageSelect It's set to false")
-    LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
-    task.wait(0.02)
-    ConsoleFrame_0.Visible = false
-    ConsolePrint.Text = "[OFF]"
-    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
-    wait(0.2)
-    LanguageSelectButton.Text = "Loading VN Script.."
+    --LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    --task.wait(0.02)
+    --ConsoleFrame_0.Visible = false
+    --ConsolePrint.Text = "[OFF]"
+    --ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    --wait(0.2)
+    --LanguageSelectButton.Text = "Loading VN Script.."
     loadVietnamScript()
 end
 
@@ -358,13 +358,13 @@ local function InLoadingSelectedEN()
     print("InLoading English Version")
     wait(0.5)
     print("isLanguageSelect It's set to false")
-    LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
-    task.wait(0.02)
-    ConsoleFrame_0.Visible = false
-    ConsolePrint.Text = "[OFF]"
-    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
-    wait(0.2)
-    LanguageSelectButton.Text = "Loading ENG Script.."
+    --LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    --task.wait(0.02)
+    --ConsoleFrame_0.Visible = false
+    --ConsolePrint.Text = "[OFF]"
+    --ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    --wait(0.2)
+    --LanguageSelectButton.Text = "Loading ENG Script.."
     loadEnglishScript()
 end
 
@@ -372,13 +372,13 @@ local function InLoadingSelectedJP()
     print("InLoading EXLanguage: Japanese Version")
     wait(0.5)
     print("isLanguageSelect It's set to false")
-    LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
-    task.wait(0.02)
-    ConsoleFrame_0.Visible = false
-    ConsolePrint.Text = "[OFF]"
-    ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
-    wait(0.2)
-    LanguageSelectButton.Text = "Loading EXLG:JP Script.."
+    --LanguageFrame_1:TweenSize(LanguageFrame_1StartSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.25, true)
+    --task.wait(0.02)
+    --ConsoleFrame_0.Visible = false
+    --ConsolePrint.Text = "[OFF]"
+    --ConsolePrint.TextColor3 = Color3.fromRGB(255, 255, 255)
+    --wait(0.2)
+    --LanguageSelectButton.Text = "Loading EXLG:JP Script.."
     loadstring(game:HttpGet("https://raw.githubusercontent.com/NganHa2k3/RobloxScript_1/EXLanguage/TheStrongestBattlegrounds_JP"))()
     print("Successfully Loaded a String")
 end
