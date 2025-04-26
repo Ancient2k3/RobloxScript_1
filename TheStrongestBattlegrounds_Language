@@ -386,14 +386,16 @@ end
 Run_Button.MouseButton1Click:Connect(function()
     if not IsEnglishSelected then
         Run_Button.Visible = false
-        InLoadingSelectedVN()
-        task.wait(0.01)
         LanguageSGui:Destroy()
+        InLoadingSelectedVN()
+        --task.wait(0.01)
+        --LanguageSGui:Destroy()
     elseif not IsVietnamSelected then
         Run_Button.Visible = false
-        InLoadingSelectedEN()
-        task.wait(0.01)
         LanguageSGui:Destroy()
+        InLoadingSelectedEN()
+        --task.wait(0.01)
+        --LanguageSGui:Destroy()
     else
         print("Not any been Selected")
     end
@@ -409,8 +411,9 @@ end)
 
 -- [[ EX Language Button Connection ]] --
 JapaneseLanguage_0.MouseButton1Click:Connect(function()
-    InLoadingSelectedJP()
-    task.wait(0.01)
     LanguageSGui:Destroy()
+    InLoadingSelectedJP()
+    --task.wait(0.01)
+    --LanguageSGui:Destroy()
 end)
 -- [[ Closed Box ]] --
