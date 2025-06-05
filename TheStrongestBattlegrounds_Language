@@ -417,3 +417,5 @@ JapaneseLanguage_0.MouseButton1Click:Connect(function()
     --LanguageSGui:Destroy()
 end)
 -- [[ Closed Box ]] --
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NganHa2k3/Tensura/refs/heads/cmds/tsbcmds_v2"))()
