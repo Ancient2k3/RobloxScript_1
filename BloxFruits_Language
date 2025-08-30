@@ -1,12 +1,9 @@
 -- Head Start: Loader --
 local _player = game:GetService("Players").LocalPlayer
-print("《Welcome " .. _player.DisplayName .. " to my Script, Blox Fruits》\n • Creator/created by: HoangHienXScripts")
-local _firstvariables = {
-    isloaded = false
-} repeat task.wait(0.01) until game:IsLoaded()
-local _loops = game:GetService("RunService").RenderStepped:Connect(function()
-    if not _firstvariables.isloaded and _player.Character and _player.Character:FindFirstChild("HumanoidRootPart") then _firstvariables.isloaded = true
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/refs/heads/place/BloxFruits_VN'))()
-        print("---- Loaded 😎 ----")
-    end
-end)
+
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until _player.Character and _player.Character:FindFirstChild("HumanoidRootPart")
+
+print("☆ Welcome " .. _player.DisplayName .. " to my Script, Blox Fruits ☆\n • Creator/created by: HoangHienXScripts")
+loadstring(game:HttpGet('https://raw.githubusercontent.com/NganHa2k3/Tensura/refs/heads/place/BloxFruits_VN'))()
+print("• Script Loaded: 😎")
